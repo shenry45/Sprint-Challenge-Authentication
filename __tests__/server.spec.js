@@ -57,7 +57,6 @@ describe('server.js', () => {
         .post('/api/auth/login')
         .send({ username: 'Test', password: 'test'})
         .then(res => {
-          console.log(res.body);
           expect(res.status).toBe(401);
         })
     })

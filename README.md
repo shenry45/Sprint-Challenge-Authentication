@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+Sessions track user behavior and paths.
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+
+The Bcrypt package allows sensitive data to be hashed and dehashed for secure storage and access.
 
 - [ ] What does bcrypt do to slow down attackers?
 
+The Bcrypt package allows more complexity to introduced between the database and attackers that wish to crack the encryption.
+
 - [ ] What are the three parts of the JSON Web Token?
+
+The three parts to the JSON Web Token syntax are: payload, secret key, and options / callback.
 
 ## Minimum Viable Product
 

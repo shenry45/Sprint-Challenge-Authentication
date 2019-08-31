@@ -14,6 +14,9 @@ module.exports = async (req, res, next) => {
     const user = await db.select('password').from('users').first();
     
     if (bcrypt.compareSync(password, user.password)) {
+      res.username = username;
+
+      console.log(res.user);
       next();
     } else {
       res.status(401).json({ you: 'shall not pass!' });

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const db = require('../database/dbConfig.js');
 const authenticate = require('./authenticate-middleware.js');
@@ -35,10 +36,27 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', authenticate, async(req, res) => {
+  const token = generateToken(req.user);
   // implement login
   res.status(202).json({
-    message: 'thank you'
+    message: 'thank you',
+    token
   })
 });
+
+
+function generateToken(username) {
+  const payload = {
+    subject: 'login',
+    username: username
+  };
+
+  const options = {
+    expiresIn: '1d'
+  };
+
+  return jwt.sign(payload, process.env.SECRET, options);
+}
+
 
 module.exports = router;
